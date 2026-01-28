@@ -1,0 +1,35 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: cms-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "StrongPassword@123"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  backend:
+    build: ./backend
+    container_name: cms-backend
+    ports:
+      - "5000:5000"
+    environment:
+      DB_SERVER: sqlserver
+      DB_USER: sa
+      DB_PASSWORD: StrongPassword@123
+      DB_NAME: CourseManagementDB
+    depends_on:
+      - sqlserver
+
+  frontend:
+    build: ./frontend
+    container_name: cms-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  sql_data:

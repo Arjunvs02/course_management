@@ -1,0 +1,10 @@
+{
+  "name": "cms-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Course Management System",
+  "private": true,
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo \"No build step required for vanilla HTML/CSS/JS\""
+  }
+}
