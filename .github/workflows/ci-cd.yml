@@ -43,5 +43,4 @@ jobs:
           sudo chmod +x /usr/local/bin/docker-compose
           docker-compose version
 
-      - name: Run Containers (Optional)
-        run: docker-compose up -d
+      

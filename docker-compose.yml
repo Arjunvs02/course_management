@@ -1,11 +1,11 @@
 services:
   backend:
-    image: yourdockerhubusername/cms-backend:latest
+    image: arjunvs02/cms-backend:latest
     ports:
       - "5000:5000"
 
   frontend:
-    image: yourdockerhubusername/cms-frontend:latest
+    image: arjunvs02/cms-frontend:latest
     ports:
       - "3000:3000"
     depends_on:
