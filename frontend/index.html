@@ -1,0 +1,135 @@
+
+<!--hiiiiiii-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Course Management System</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+
+    /* Main card */
+    .container {
+      background: #ffffff;
+      width: 420px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1e3c72;
+    }
+
+    h2 {
+      margin-top: 25px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #2a5298;
+    }
+
+    .box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .box input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .box input:focus {
+      outline: none;
+      border-color: #2a5298;
+      box-shadow: 0 0 4px rgba(42, 82, 152, 0.5);
+    }
+
+    .box button {
+      padding: 10px 16px;
+      background: #2a5298;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .box button:hover {
+      background: #1e3c72;
+      transform: scale(1.05);
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    ul li {
+      background: #f4f7fb;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      border-left: 5px solid #2a5298;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Course Management System</h1>
+
+  <div class="box">
+    <input id="course" placeholder="Course name">
+    <button onclick="addCourse()">Add</button>
+  </div>
+
+  <h2>Courses</h2>
+  <ul id="courseList"></ul>
+</div>
+
+<script>
+  function addCourse() {
+    const courseInput = document.getElementById("course");
+    const courseList = document.getElementById("courseList");
+
+    const courseName = courseInput.value.trim();
+
+    if (courseName === "") {
+      alert("Please enter a course name");
+      return;
+    }
+
+    const li = document.createElement("li");
+    li.textContent = courseName;
+
+    courseList.appendChild(li);
+    courseInput.value = "";
+  }
+</script>
+
+</body>
+</html>
